@@ -1,7 +1,9 @@
-<%= form_with scope: :users, url: users_path, local: true do |form| %>
+<%= @messageFromControllerUserNotExist %>
+
+<%= form_with scope: :user, url: users_path, local: true do |form| %>
   <p>
     <%= form.label :email %><br>
-    <%= form.text_field :email%>
+    <%= form.text_field :email %>
   </p>
 
   <p>
@@ -12,4 +14,5 @@
   <p>
     <%= form.submit %>
   </p>
+ <%= link_to 'login', users_login_path %>
 <% end %>

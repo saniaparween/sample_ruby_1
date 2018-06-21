@@ -1,6 +1,11 @@
 <h1> This is the index page </h1>
+<h1> Welcome dear guest! </h1>
+<h2> Look for your email Id below. If you are already a registered member. Simply Login </h2>
+<%= link_to 'Login' , users_login_path %><br>
+
 <% @user.each do |x| %>
-<%= x.email %>
-<% end %>
- <% Please log in here if your email doesn't exist %>
- <%= link_to 'LOG IN', users_new_path %>
+    <tr>
+      <td><%= x.email %></td>
+    </tr>
+    <hr><br>
+  <% end %>

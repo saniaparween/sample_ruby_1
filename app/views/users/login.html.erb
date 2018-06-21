@@ -1,5 +1,17 @@
 <h1> This is the login page </h1>
+
+<%= form_with scope: :user, url: users_login_path, local: true do |form| %>
 <p>
   <%= form.label :email %><br>
   <%= form.text_field :email%>
 </p>
+
+<p>
+  <%= form.label :password %><br>
+  <%= form.text_area :password %>
+</p>
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>
