@@ -1,0 +1,6 @@
+<h1> This is the index page </h1>
+<% @user.each do |x| %>
+<%= x.email %>
+<% end %>
+ <% Please log in here if your email doesn't exist %>
+ <%= link_to 'LOG IN', users_new_path %>

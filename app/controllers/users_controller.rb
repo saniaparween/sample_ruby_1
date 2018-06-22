@@ -19,20 +19,20 @@ class UsersController < ApplicationController
   end
 
   def checkValidUser
-    #binding.pry
+    binding.pry
     @emailFromLoginView = params[:user][:email]
     @passwordFromLoginView= params[:user][:password]
     #emailFromDb = User.find_by(:email => @emailFromLoginView)
 
-      if User.exists?(:email => @emailFromLoginView)
+      if User.exists?(:email => @emailFromLoginView)   #If the user has already signed up
         passwordFromDb = User.where(email: @emailFromLoginView).select("password")
-         if( passwordFromDb == @passwordFromLoginView)
-              redirect_to users_profile_path
+         if( passwordFromDb == @passwordFromLoginView) #If the corresponding password of that user matches with the one in the db
+              redirect_to users_profile_path           # send the user to its profile page
           else
-              redirect_to users_login_path
+              redirect_to users_login_path            # Else send it to its login page
           end
       else
-        redirect_to new_user_path
+        redirect_to new_user_path                     # If the user is not signed up send to sign up page
       end
  end
 
